@@ -37,11 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'astro_base'
-    'ligth_pollution'
-    'meteo'
-    'planner'
-    'telescope_config'
+    'astro_base.apps.AstroBaseConfig',
+    'light_pollution.apps.LightPollutionConfig',
+    'meteo.apps.MeteoConfig',
+    'planner.apps.PlannerConfig',
+    'telescope_config.apps.TelescopeConfigConfig'
 ]
 
 MIDDLEWARE = [
