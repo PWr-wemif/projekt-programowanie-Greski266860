@@ -1,6 +1,7 @@
 from pyexpat import model
 from django.db import models
 from django.conf import settings
+import math
 # Create your models here.
 class A_object(models.Model):
     name = models.CharField(max_length=50)
@@ -14,13 +15,13 @@ class A_object(models.Model):
     def getImage(self):
         return self.image
     
+    
 class Telescope(models.Model):
     name = models.CharField(max_length=100)
     brand = models.CharField(max_length=100)
     tel_type = models.CharField(max_length=50)
     aperture = models.FloatField()
     focal_length = models.PositiveIntegerField()
-    max_magnitude = models.FloatField(default=0)
 
     def __str__(self):
         return self.name
@@ -33,7 +34,7 @@ class Telescope(models.Model):
     def getFocalLength(self):
         return self.focal_length
     def getMaxMagnitude(self):
-        return self.max_magnitude
+        return 5* math.log(self.aperture) +2.3
     
 class Eyepiece(models.Model):
     name = models.CharField(max_length=100)
